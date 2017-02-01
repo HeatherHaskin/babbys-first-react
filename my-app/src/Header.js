@@ -1,30 +1,21 @@
-import React /*, { Component }*/ from 'react';
+import React from 'react';
 import './Header.css';
 
-// class HeaderContainer extends Component {
-//   render() {
-//     return (
-//       <div className="header-container">
-//         <h1>Hello, I'm a header!</h1>
-//         <h3>{this.props.children}</h3>
-//       </div>
-//     );
-//   }
-// }
-
 const HeaderNavItem = props => {
+    let label = props.label
     return (
       <li>
-        <a href="#">Link</a>
+        <a href="#">{label}</a>
       </li>
     )
 }
 const HeaderContainer = props => {
   let listitems = []
-  for (let i=0; i<props.num; i++) {
-    listitems.push(<HeaderNavItem name="name"/>)
+  console.log(props.num)
+  for (let i=0; i<props.num.length; i++) {
+    console.log(props.num[i])
+    listitems.push(<HeaderNavItem label={props.num[i]} />)
   }
-  console.log(listitems)
   return (
     <ul className="header-container">
       {listitems}
